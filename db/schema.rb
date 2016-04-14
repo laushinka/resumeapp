@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160414085315) do
+ActiveRecord::Schema.define(version: 20160414113627) do
 
   create_table "resumes", force: :cascade do |t|
     t.string   "name"
@@ -25,5 +25,7 @@ ActiveRecord::Schema.define(version: 20160414085315) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "resumes", ["zip"], name: "index_resumes_on_zip"
 
 end
