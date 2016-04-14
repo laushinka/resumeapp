@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160414113627) do
+ActiveRecord::Schema.define(version: 20160414131002) do
+
+  create_table "jobs", force: :cascade do |t|
+    t.string   "company_name"
+    t.text     "work_summary"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "resumes", force: :cascade do |t|
     t.string   "name"
@@ -27,5 +36,13 @@ ActiveRecord::Schema.define(version: 20160414113627) do
   end
 
   add_index "resumes", ["zip"], name: "index_resumes_on_zip"
+
+  create_table "view_histories", force: :cascade do |t|
+    t.integer  "resume_id"
+    t.datetime "time_viewed"
+    t.string   "ip"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
 end
